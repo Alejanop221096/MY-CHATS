@@ -1,0 +1,145 @@
+/* Contenedor principal del chat */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  background-color: #e5ddd5; /* Fondo beige clásico */
+  background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); /* Patrón de Telegram */
+  background-repeat: repeat;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Header: Estilo moderno */
+.header {
+  padding: 10px 20px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.header img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+.header span {
+  font-weight: 600;
+  color: #222;
+}
+
+/* Cuerpo de mensajes */
+.cuerpo-mensajes {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Espacio corto entre burbujas como Telegram */
+}
+
+/* Alineación de las filas */
+.row-mio, .row-otro {
+  display: flex;
+  width: 100%;
+}
+
+.row-mio { justify-content: flex-end; }
+.row-otro { justify-content: flex-start; }
+
+/* La Burbuja */
+.burbuja {
+  max-width: 75%;
+  padding: 7px 12px 6px;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  font-size: 14.5px;
+  line-height: 1.4;
+}
+
+/* Mis mensajes (Verde) */
+.row-mio .burbuja {
+  background-color: #efffde;
+  border-radius: 12px 12px 0 12px; /* Esquina inferior derecha cuadrada */
+  color: #111;
+}
+
+/* Mensajes del otro (Blanco) */
+.row-otro .burbuja {
+  background-color: #ffffff;
+  border-radius: 12px 12px 12px 0; /* Esquina inferior izquierda cuadrada */
+  color: #111;
+}
+
+/* Texto del mensaje */
+.texto {
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Meta: Hora y Checks integrados en la burbuja */
+.info-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  float: right;
+  margin-left: 10px;
+  margin-top: 4px;
+}
+
+.hora {
+  font-size: 11px;
+  color: #6a9b5a; /* Verde más oscuro para mis mensajes */
+}
+
+.row-otro .hora {
+  color: #a0a0a0; /* Gris para sus mensajes */
+}
+
+.checks {
+  font-size: 12px;
+  color: #4fc3f7; /* Azul característico de lectura */
+  font-weight: bold;
+}
+
+/* Área de Input inferior */
+.input-area {
+  padding: 10px 15px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  background: #f4f4f5;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.input-area input:focus {
+  border: 1px solid #0088cc;
+}
+
+.input-area button {
+  background: transparent;
+  color: #0088cc;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+.input-area button:hover {
+  color: #006699;
+}

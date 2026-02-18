@@ -1,0 +1,55 @@
+/* Contenedor principal */
+.lista-usuarios {
+  max-width: 400px;
+  height: 100vh;
+  margin-right: 10px;
+ 
+  background-color: #fafafa;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Tarjeta de usuario */
+.usuario-card {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 0.5px solid #f2f2f2;
+}
+
+.usuario-card:hover {
+  background-color: #f4f4f5;
+}
+
+/* Avatar circular tipo Telegram */
+.usuario-card img {
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  background-color: #74b9ff; /* Color de fondo si la imagen falla */
+}
+
+/* Texto del nombre */
+.usuario-card span {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 500;
+  color: #222222;
+}
+
+/* Estado (foco) debajo o al lado del nombre */
+.usuario-card small {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Estilo para cuando no hay nadie */
+.lista-usuarios p {
+  text-align: center;
+  padding: 20px;
+  color: #aaaaaa;
+  font-size: 14px;
+}

@@ -1,0 +1,47 @@
+<div class="chat">
+    <div class="header-chats">
+    <h1>Tus Conversaciones</h1>
+    <p>Te permite mantener conversaciones en tiempo real</p>
+    </div>
+
+    @if (uDestino) {
+  <div class="chat-container">
+    <div class="header">
+      <img src="https://ui-avatars.com/api/?name={{uDestino.nombre}}" width="30">
+      <span>{{ uDestino.nombre }}</span>
+      <small [class]="uDestino.status">({{ uDestino.status }})</small>
+    </div>
+
+   <div class="cuerpo-mensajes">
+  @for (m of mensajes; track m.fecha) {
+    <div [ngClass]="{'row-mio': m.de === miId, 'row-otro': m.de !== miId}">
+      
+      <div class="burbuja">
+        <span>de:{{m.de}}</span>
+        <span class="texto">{{ m.mensaje }}</span>
+        
+        <div class="info-meta">
+          <span class="hora">{{ m.fecha | date:'HH:mm' }}</span>
+          
+          @if (m.de === miId) {
+            <span class="checks">✓✓</span>
+          }
+        </div>
+      </div>
+
+    </div>
+  }
+</div>
+
+    <div class="input-area">
+      <input [(ngModel)]="mensaje" type="text" placeholder="Escribe a {{ uDestino.nombre }}..." >
+      <button (click)="EnviarMensaje()">Enviar</button>
+    </div>
+  </div>
+} @else {
+  <div class="vacio">
+    <p>Selecciona un contacto para chatear</p>
+  </div>
+}
+
+</div>

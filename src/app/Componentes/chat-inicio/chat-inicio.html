@@ -1,0 +1,21 @@
+<div class="lista-usuarios">
+  <p class="usuario-logeado-header">Lista de Usuarios</p>
+
+  @for (u of listaUsuarios; track u._id || u.uid || $index) {
+    <div class="usuario-card" (click)="abrirChat(u)" style="cursor: pointer;">
+      <div class="avatar-container">
+        <img src="https://ui-avatars.com/api/?name={{u.nombre}}&background=random" alt="avatar" width="40">
+        <span class="status-indicator" [ngClass]="u.status"></span>
+      </div>
+      
+      <div class="user-info">
+        <span>{{ u.nombre }}</span>
+        <small [ngClass]="{'online-text': u.status === 'online', 'offline-text': u.status === 'offline'}">
+          ({{ u.status }})
+        </small>
+      </div>
+    </div>
+  } @empty {
+    <p class="no-users">No hay otros usuarios registrados.</p>
+  }
+</div>

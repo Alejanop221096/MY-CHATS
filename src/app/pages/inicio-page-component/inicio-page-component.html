@@ -1,0 +1,13 @@
+
+
+<div class="body_chat">
+<h1>My CHAT`S</h1>
+<p *ngIf="mensajeError" style="color: red; font-weight: bold;">
+    {{  mensajeError}}
+  </p>
+<input type="text" placeholder="Usuario"  [(ngModel)]="email">
+<input type="text" placeholder="Contraseña" [(ngModel)]="password">
+<button (click)="ingresar()">Ingresar</button>
+
+<a href="/"><span>Registrar</span></a>
+</div>
